@@ -5,21 +5,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-# CASE_SENSITIVE="true"
-# HYPHEN_INSENSITIVE="true"
-# DISABLE_AUTO_UPDATE="true"
-# DISABLE_UPDATE_PROMPT="true"
-# export UPDATE_ZSH_DAYS=13
-# DISABLE_MAGIC_FUNCTIONS=true
-# DISABLE_LS_COLORS="true"
-# DISABLE_AUTO_TITLE="true"
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-# HIST_STAMPS="mm/dd/yyyy"
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/opt/intel/mediasdk/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:$PATH
+# set path
+if [ -f /usr/lib/os-release ]; then
+    # we're on arch, set path accordingly
+    export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/opt/intel/mediasdk/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:$PATH
+else
+    export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:$PATH
+fi
 typeset -aU path
+
 export ZSH="/home/wwinfrey/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ENABLE_CORRECTION="true"
@@ -31,7 +25,7 @@ plugins=(
     emacs
     extract
     gcloud
-	  git
+    git
     gpg-agent
     keychain
     kubectl
@@ -51,12 +45,6 @@ source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
 
 # user configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-# example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 export LANG=en_US.UTF-8
 export ARCHFLAGS="-arch x86_64"
 
