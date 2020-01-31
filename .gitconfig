@@ -2,3 +2,5 @@
 	email = wwinfrey@gmail.com
 	name = Wallace Winfrey
 	signingkey = CC242438F5841AA9
+[core]
+	excludesfile = /home/wwinfrey/.gitignore_global
