@@ -6,9 +6,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # set path
-if [ -f /usr/lib/os-release ]; then
-    # we're on arch, set path accordingly
+if [ -e /proc/version ] && grep -q arch /proc/version; then
+    # arch
     export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/opt/intel/mediasdk/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:$PATH
+elif [ -e /proc/version ] && grep -q ubuntu /proc/version; then
+    # ubuntu
+    export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/lib/x86_64-linux-gnu/libexec/kf5/:$PATH
 else
     export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:$PATH
 fi
