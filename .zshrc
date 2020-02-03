@@ -56,6 +56,7 @@ autoload -U compinit && compinit
 # user configuration
 export LANG=en_US.UTF-8
 export ARCHFLAGS="-arch x86_64"
+export LESS="-XFR"
 
 # history options
 setopt APPEND_HISTORY
