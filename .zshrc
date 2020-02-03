@@ -34,10 +34,16 @@ plugins=(
     kubectl
     pip
     pipenv
+    systemadmin
+    taskwarrior
     terraform
+    themes
+    timer
     vagrant
+    zaw
     zsh-autosuggestions
     zsh-completions
+    zsh_reload
     zsh-syntax-highlighting
 )
 
@@ -50,6 +56,17 @@ autoload -U compinit && compinit
 # user configuration
 export LANG=en_US.UTF-8
 export ARCHFLAGS="-arch x86_64"
+
+# history options
+setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE
+setopt NO_HIST_BEEP
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
 
 # alias-finder: run automatically
 ZSH_ALIAS_FINDER_AUTOMATIC=true
