@@ -24,6 +24,7 @@ COMPLETION_WAITING_DOTS="true"
 
 plugins=(
     alias-finder
+    aws
     debian
     emacs
     extract
@@ -52,6 +53,9 @@ zstyle :omz:plugins:keychain identities id_rsa_metalab-kubuntuhv CC242438F5841AA
 
 source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
+
+# load azure cli completions
+source /usr/local/bin/az.completion.sh
 
 # user configuration
 export LANG=en_US.UTF-8
